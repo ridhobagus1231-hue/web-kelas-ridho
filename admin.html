@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <title>Dashboard Admin — 7G</title>
+
+  <link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+  <aside class="sidebar">
+
+    <div class="sidebar-logo">
+      7G <span>ADMIN</span>
+    </div>
+
+    <a href="#" class="active">
+      📊 <span>Dashboard</span>
+    </a>
+
+    <a href="#galeri">
+      🖼️ <span>Galeri</span>
+    </a>
+
+    <a href="#anggota">
+      👥 <span>Anggota</span>
+    </a>
+
+    <a href="#jadwal">
+      📚 <span>Jadwal</span>
+    </a>
+
+    <a href="#pengumuman">
+      📢 <span>Pengumuman</span>
+    </a>
+
+    <a href="index.html">
+      🌐 <span>Lihat Website</span>
+    </a>
+
+  </aside>
+
+
+  <main class="main-admin">
+
+    <div class="admin-top">
+
+      <div>
+        <h1>Dashboard</h1>
+        <p>Selamat datang, Admin 👋</p>
+      </div>
+
+      <button class="logout" id="logoutBtn">
+        Keluar
+      </button>
+
+    </div>
+
+
+    <div class="dashboard-cards">
+
+      <div class="dashboard-card">
+        <span>Foto Galeri</span>
+        <strong id="photoCount">0</strong>
+      </div>
+
+      <div class="dashboard-card">
+        <span>Anggota</span>
+        <strong>30</strong>
+      </div>
+
+      <div class="dashboard-card">
+        <span>Pengumuman</span>
+        <strong>1</strong>
+      </div>
+
+      <div class="dashboard-card">
+        <span>Status</span>
+        <strong>ONLINE</strong>
+      </div>
+
+    </div>
+
+
+    <section class="admin-panel" id="galeri">
+
+      <div class="panel-head">
+
+        <div>
+          <h2>🖼️ Kelola Galeri</h2>
+          <p>Tambah atau hapus foto kelas.</p>
+        </div>
+
+        <button
+          class="add-btn"
+          onclick="openUpload()">
+          + Tambah Foto
+        </button>
+
+      </div>
+
+
+      <div
+        class="admin-gallery"
+        id="adminGallery">
+
+        <p>
+          Belum ada foto.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="admin-panel" id="anggota">
+
+      <div class="panel-head">
+
+        <div>
+          <h2>👥 Anggota Kelas</h2>
+          <p>
+            Kelola data anggota kelas.
+          </p>
+        </div>
+
+        <button class="add-btn">
+          + Tambah
+        </button>
+
+      </div>
+
+      <p>
+        Fitur anggota dapat dihubungkan
+        ke Firestore setelah database dibuat.
+      </p>
+
+    </section>
+
+
+    <section class="admin-panel" id="jadwal">
+
+      <div class="panel-head">
+
+        <div>
+          <h2>📚 Jadwal</h2>
+          <p>
+            Kelola jadwal pelajaran.
+          </p>
+        </div>
+
+        <button class="add-btn">
+          + Tambah
+        </button>
+
+      </div>
+
+      <p>
+        Data jadwal akan disimpan di Firestore.
+      </p>
+
+    </section>
+
+
+    <section class="admin-panel" id="pengumuman">
+
+      <div class="panel-head">
+
+        <div>
+          <h2>📢 Pengumuman</h2>
+          <p>
+            Kelola informasi kelas.
+          </p>
+        </div>
+
+        <button class="add-btn">
+          + Tambah
+        </button>
+
+      </div>
+
+      <p>
+        Admin dapat membuat pengumuman baru.
+      </p>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<script type="module">
+
+import {
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+  auth
+} from "./firebase.js";
+
+
+onAuthStateChanged(auth, user => {
+
+  if (!user) {
+    window.location.href = "login.html";
+  }
+
+});
+
+
+document
+  .getElementById("logoutBtn")
+  .addEventListener("click", async () => {
+
+    await signOut(auth);
+
+    window.location.href = "login.html";
+
+  });
+
+
+window.openUpload = function() {
+
+  alert(
+    "Upload foto akan dihubungkan ke Firebase Storage pada tahap berikutnya."
+  );
+
+};
+
+</script>
+
+</body>
+</html>
