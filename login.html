@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <title>Admin Login — 7G</title>
+
+  <link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body class="login-page">
+
+  <div class="login-card">
+
+    <div class="admin-logo">
+      7G
+    </div>
+
+    <h1>Admin Panel</h1>
+
+    <p class="login-subtitle">
+      Kelola website kelas 7G SMP 3 Magetan
+    </p>
+
+    <form id="loginForm">
+
+      <label>Email Admin</label>
+
+      <input
+        type="email"
+        id="email"
+        value="ridho@admin.com"
+        required
+      >
+
+      <label>Password</label>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Masukkan password"
+        required
+      >
+
+      <button type="submit">
+        Masuk ke Dashboard →
+      </button>
+
+      <div id="loginError"></div>
+
+    </form>
+
+    <a class="back-home" href="index.html">
+      ← Kembali ke website
+    </a>
+
+  </div>
+
+  <script type="module">
+
+    import {
+      signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+    import {
+      auth
+    } from "./firebase.js";
+
+
+    document
+      .getElementById("loginForm")
+      .addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const email =
+          document.getElementById("email").value;
+
+        const password =
+          document.getElementById("password").value;
+
+        const error =
+          document.getElementById("loginError");
+
+        error.textContent = "";
+
+        try {
+
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+          window.location.href = "admin.html";
+
+        } catch (err) {
+
+          error.textContent =
+            "Email atau password salah.";
+
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
