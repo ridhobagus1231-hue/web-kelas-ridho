@@ -11,22 +11,22 @@ import {
 
 const firebaseConfig = {
 
-  apiKey: "MASUKKAN_API_KEY",
+  apiKey: "AIzaSyAOiFLP1TeX7AvMPrSbPwYxKCzr7d6acyY",
 
   authDomain:
-    "PROJECT-ID.firebaseapp.com",
+    "ridho-v3.firebaseapp.com",
 
   projectId:
-    "PROJECT-ID",
+    "https://ridho-v3-default-rtdb.asia-southeast1.firebasedatabase.app",
 
   storageBucket:
-    "PROJECT-ID.firebasestorage.app",
+    "ridho-v3.firebasestorage.app",
 
   messagingSenderId:
-    "MASUKKAN_SENDER_ID",
+    "1028204303087",
 
   appId:
-    "MASUKKAN_APP_ID"
+    "1:1028204303087:web:3cf61911f11efc1030c11a"
 
 };
 
