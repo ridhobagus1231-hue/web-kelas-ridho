@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
   <title>Dashboard Admin — 7G</title>
-
   <link rel="stylesheet" href="admin.css">
-
 </head>
 
 <body>
@@ -17,24 +12,350 @@
 <div class="admin-layout">
 
   <aside class="sidebar">
-
     <div class="sidebar-logo">
       7G <span>ADMIN</span>
     </div>
 
-    <a href="#" class="active">
-      📊 <span>Dashboard</span>
-    </a>
+    <a href="#dashboard" class="active">📊 <span>Dashboard</span></a>
+    <a href="#galeri">🖼️ <span>Galeri</span></a>
+    <a href="#anggota">👥 <span>Anggota</span></a>
+    <a href="#jadwal">📚 <span>Jadwal</span></a>
+    <a href="#pengumuman">📢 <span>Pengumuman</span></a>
+    <a href="index.html">🌐 <span>Lihat Website</span></a>
+  </aside>
 
-    <a href="#galeri">
-      🖼️ <span>Galeri</span>
-    </a>
 
-    <a href="#anggota">
-      👥 <span>Anggota</span>
-    </a>
+  <main class="main-admin">
 
-    <a href="#jadwal">
+    <div class="admin-top" id="dashboard">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Kelola website kelas 7G 👋</p>
+      </div>
+
+      <button class="logout" id="logoutBtn">
+        Keluar
+      </button>
+    </div>
+
+
+    <!-- STATISTIK -->
+
+    <div class="dashboard-cards">
+
+      <div class="dashboard-card">
+        <span>👥 Anggota</span>
+        <strong id="memberCount">0</strong>
+      </div>
+
+      <div class="dashboard-card">
+        <span>📚 Jadwal</span>
+        <strong id="scheduleCount">0</strong>
+      </div>
+
+      <div class="dashboard-card">
+        <span>🖼️ Galeri</span>
+        <strong id="photoCount">0</strong>
+      </div>
+
+      <div class="dashboard-card">
+        <span>🟢 Status</span>
+        <strong>ONLINE</strong>
+      </div>
+
+    </div>
+
+
+    <!-- ANGGOTA -->
+
+    <section class="admin-panel" id="anggota">
+
+      <div class="panel-head">
+
+        <div>
+          <h2>👥 Anggota Kelas</h2>
+          <p>Tambah dan kelola anggota kelas 7G.</p>
+        </div>
+
+        <button
+          class="add-btn"
+          onclick="openMemberModal()">
+          + Tambah Anggota
+        </button>
+
+      </div>
+
+      <div
+        class="data-grid"
+        id="memberList">
+      </div>
+
+    </section>
+
+
+    <!-- JADWAL -->
+
+    <section class="admin-panel" id="jadwal">
+
+      <div class="panel-head">
+
+        <div>
+          <h2>📚 Jadwal Pelajaran</h2>
+          <p>Kelola jadwal pelajaran kelas.</p>
+        </div>
+
+        <button
+          class="add-btn"
+          onclick="openScheduleModal()">
+          + Tambah Jadwal
+        </button>
+
+      </div>
+
+      <div class="schedule-mobile">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Hari</th>
+              <th>Mata Pelajaran</th>
+              <th>Jam</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody id="scheduleList">
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <!-- GALERI -->
+
+    <section class="admin-panel" id="galeri">
+
+      <div class="panel-head">
+
+        <div>
+          <h2>🖼️ Galeri</h2>
+          <p>Kelola foto kegiatan kelas.</p>
+        </div>
+
+        <button class="add-btn">
+          + Tambah Foto
+        </button>
+
+      </div>
+
+      <div class="empty-box">
+        📷
+        <p>
+          Upload galeri akan dihubungkan
+          ke Firebase Storage.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- PENGUMUMAN -->
+
+    <section class="admin-panel" id="pengumuman">
+
+      <div class="panel-head">
+
+        <div>
+          <h2>📢 Pengumuman</h2>
+          <p>Kelola informasi kelas.</p>
+        </div>
+
+        <button class="add-btn">
+          + Tambah
+        </button>
+
+      </div>
+
+      <div class="empty-box">
+        📢
+        <p>
+          Modul pengumuman siap dikembangkan
+          menggunakan Firestore.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- ================= MODAL ANGGOTA ================= -->
+
+<div class="modal" id="memberModal">
+
+  <div class="modal-card">
+
+    <div class="modal-head">
+      <h2 id="memberModalTitle">
+        Tambah Anggota
+      </h2>
+
+      <button onclick="closeMemberModal()">×</button>
+    </div>
+
+    <form id="memberForm">
+
+      <input type="hidden" id="memberId">
+
+      <label>Nama Lengkap</label>
+
+      <input
+        type="text"
+        id="memberName"
+        placeholder="Contoh: Ridho Bagus"
+        required
+      >
+
+      <label>Jabatan / Keterangan</label>
+
+      <select id="memberRole">
+
+        <option value="Siswa">
+          Siswa
+        </option>
+
+        <option value="Ketua Kelas">
+          Ketua Kelas
+        </option>
+
+        <option value="Wakil Ketua">
+          Wakil Ketua
+        </option>
+
+        <option value="Sekretaris">
+          Sekretaris
+        </option>
+
+        <option value="Bendahara">
+          Bendahara
+        </option>
+
+      </select>
+
+      <div class="modal-buttons">
+
+        <button
+          type="button"
+          class="cancel-btn"
+          onclick="closeMemberModal()">
+          Batal
+        </button>
+
+        <button
+          type="submit"
+          class="save-btn">
+          Simpan
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ================= MODAL JADWAL ================= -->
+
+<div class="modal" id="scheduleModal">
+
+  <div class="modal-card">
+
+    <div class="modal-head">
+
+      <h2 id="scheduleModalTitle">
+        Tambah Jadwal
+      </h2>
+
+      <button onclick="closeScheduleModal()">
+        ×
+      </button>
+
+    </div>
+
+    <form id="scheduleForm">
+
+      <input type="hidden" id="scheduleId">
+
+      <label>Hari</label>
+
+      <select id="scheduleDay">
+
+        <option>Senin</option>
+        <option>Selasa</option>
+        <option>Rabu</option>
+        <option>Kamis</option>
+        <option>Jumat</option>
+        <option>Sabtu</option>
+
+      </select>
+
+
+      <label>Mata Pelajaran</label>
+
+      <input
+        type="text"
+        id="scheduleSubject"
+        placeholder="Contoh: Matematika"
+        required
+      >
+
+
+      <label>Jam Pelajaran</label>
+
+      <input
+        type="text"
+        id="scheduleTime"
+        placeholder="07.00 - 08.30"
+        required
+      >
+
+
+      <div class="modal-buttons">
+
+        <button
+          type="button"
+          class="cancel-btn"
+          onclick="closeScheduleModal()">
+          Batal
+        </button>
+
+        <button
+          type="submit"
+          class="save-btn">
+          Simpan
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>    <a href="#jadwal">
       📚 <span>Jadwal</span>
     </a>
 
