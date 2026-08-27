@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="theme-color" content="#1677ff">
+  <title>7G SMP 3 Magetan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+
+    <a href="#" class="logo">
+      <span class="logo-box">7G</span>
+      <span>SMP 3 MAGETAN</span>
+    </a>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav id="navMenu">
+      <a href="#home">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#anggota">Anggota</a>
+      <a href="#jadwal">Jadwal</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#pengumuman">Pengumuman</a>
+    </nav>
+
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+  </div>
+</header>
+
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="hero-badge">
+      🏫 WEBSITE KELAS
+    </div>
+
+    <h1>
+      Welcome to
+      <span>Class 7G</span>
+    </h1>
+
+    <p>
+      Website resmi keluarga besar kelas 7G
+      SMP Negeri 3 Magetan.
+      Tempat menyimpan informasi, kegiatan,
+      dan kenangan bersama.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#galeri" class="btn primary">
+        Lihat Galeri
+      </a>
+
+      <a href="#anggota" class="btn secondary">
+        Anggota Kelas
+      </a>
+    </div>
+
+  </div>
+
+  <div class="hero-card">
+
+    <div class="class-logo">
+      7G
+    </div>
+
+    <h2>VII G</h2>
+
+    <p>SMP Negeri 3 Magetan</p>
+
+    <div class="hero-stats">
+      <div>
+        <strong id="jumlahSiswa">30</strong>
+        <small>Siswa</small>
+      </div>
+
+      <div>
+        <strong>2026</strong>
+        <small>Tahun</small>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="tentang">
+
+  <div class="section-title">
+    <span>TENTANG KELAS</span>
+    <h2>Keluarga Besar 7G</h2>
+    <p>
+      Bersama belajar, bermain, berkembang,
+      dan menciptakan kenangan yang tidak terlupakan.
+    </p>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="info-card">
+      <div class="card-icon">🎓</div>
+      <h3>Wali Kelas</h3>
+      <p id="waliKelas">
+        Nama Wali Kelas
+      </p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-icon">🏫</div>
+      <h3>Sekolah</h3>
+      <p>
+        SMP Negeri 3 Magetan
+      </p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-icon">📅</div>
+      <h3>Tahun Pelajaran</h3>
+      <p>
+        2026 / 2027
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="blue-section">
+
+  <div class="section-title white">
+    <span>STATISTIK</span>
+    <h2>7G Dalam Angka</h2>
+  </div>
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong id="statSiswa">30</strong>
+      <span>Anggota</span>
+    </div>
+
+    <div class="stat">
+      <strong>1</strong>
+      <span>Kelas</span>
+    </div>
+
+    <div class="stat">
+      <strong>∞</strong>
+      <span>Kenangan</span>
+    </div>
+
+    <div class="stat">
+      <strong>2026</strong>
+      <span>Angkatan</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="anggota">
+
+  <div class="section-title">
+    <span>MEMBERS</span>
+    <h2>Anggota Kelas</h2>
+    <p>
+      Kenali keluarga besar kelas 7G.
+    </p>
+  </div>
+
+  <div class="members" id="members">
+
+    <div class="member">
+      <div class="avatar">R</div>
+      <h3>Nama Siswa</h3>
+      <p>Ketua Kelas</p>
+    </div>
+
+    <div class="member">
+      <div class="avatar">A</div>
+      <h3>Nama Siswa</h3>
+      <p>Wakil Ketua</p>
+    </div>
+
+    <div class="member">
+      <div class="avatar">S</div>
+      <h3>Nama Siswa</h3>
+      <p>Sekretaris</p>
+    </div>
+
+    <div class="member">
+      <div class="avatar">B</div>
+      <h3>Nama Siswa</h3>
+      <p>Bendahara</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="jadwal">
+
+  <div class="section-title">
+    <span>SCHEDULE</span>
+    <h2>Jadwal Pelajaran</h2>
+    <p>
+      Jadwal pelajaran kelas 7G.
+    </p>
+  </div>
+
+  <div class="table-container">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Hari</th>
+          <th>Pelajaran</th>
+          <th>Jam</th>
+        </tr>
+      </thead>
+
+      <tbody id="schedule">
+
+        <tr>
+          <td>Senin</td>
+          <td>Matematika</td>
+          <td>07.00 - 08.30</td>
+        </tr>
+
+        <tr>
+          <td>Selasa</td>
+          <td>Bahasa Indonesia</td>
+          <td>07.00 - 08.30</td>
+        </tr>
+
+        <tr>
+          <td>Rabu</td>
+          <td>IPA</td>
+          <td>07.00 - 08.30</td>
+        </tr>
+
+        <tr>
+          <td>Kamis</td>
+          <td>Bahasa Inggris</td>
+          <td>07.00 - 08.30</td>
+        </tr>
+
+        <tr>
+          <td>Jumat</td>
+          <td>IPS</td>
+          <td>07.00 - 08.30</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<section id="galeri">
+
+  <div class="section-title">
+    <span>GALLERY</span>
+    <h2>Galeri 7G</h2>
+    <p>
+      Kumpulan foto kegiatan dan kenangan kelas.
+    </p>
+  </div>
+
+  <div class="gallery" id="gallery">
+
+    <div class="gallery-empty">
+      <div>📷</div>
+      <h3>Belum ada foto</h3>
+      <p>
+        Foto yang ditambahkan melalui
+        Admin Panel akan muncul di sini.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="pengumuman">
+
+  <div class="section-title">
+    <span>INFORMATION</span>
+    <h2>Pengumuman</h2>
+  </div>
+
+  <div class="announcement-grid" id="announcements">
+
+    <div class="announcement">
+      <span>📢 INFO</span>
+      <h3>Selamat datang di website 7G!</h3>
+      <p>
+        Website kelas digunakan untuk berbagi
+        informasi dan dokumentasi kegiatan kelas.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="contact-section">
+
+  <div class="contact-box">
+
+    <div>
+      <span>👋 HALO, 7G!</span>
+
+      <h2>
+        Satu kelas,
+        banyak cerita.
+      </h2>
+
+      <p>
+        Mari buat tahun pelajaran ini
+        menjadi salah satu kenangan terbaik.
+      </p>
+    </div>
+
+    <a href="#galeri" class="btn white-btn">
+      Lihat Kenangan →
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="footer-content">
+
+    <div>
+      <strong>7G SMP 3 MAGETAN</strong>
+      <p>
+        Website kelas • 2026
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#home">Beranda</a>
+      <a href="#galeri">Galeri</a>
+      <a href="login.html">Admin</a>
+    </div>
+
+  </div>
+
+</footer>
+
+
+<button id="topBtn" onclick="window.scrollTo(0,0)">
+  ↑
+</button>
+
+
+<script src="firebase.js"></script>
+<script src="script.js"></script>
+
+</body>
+  </html>
